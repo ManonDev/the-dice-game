@@ -1,0 +1,93 @@
+        /* -- MAIN --*/
+body {
+  background: #aa0000;
+  background: linear-gradient(90deg, #aa0000 0%, #ce5b4e 44%, #fbceb1 100%);
+  font-family: 'Lato', sans-serif;
+}
+
+
+        /* -- PLAYER ZONE -- */
+#canvas {
+  margin-top: 2rem;
+  width: 90%;
+  min-height: 80vh;
+}
+
+#panel {
+  min-height: 80vh;
+}
+
+
+        /* -- PLAYERS STYLES -- */
+.player-0-panel, .player-1-panel {
+  max-height: 100vh;
+  padding: 2rem;
+}
+
+.active {
+  background-color: #F2F4F4;
+}
+
+.active .player-name { 
+  font-weight: bold; 
+}
+
+.player-name {
+  font-size: 2rem;
+}
+
+.player-score {
+  font-size: 5rem;
+  color: #EB4D4D;
+}
+
+.current-player {
+  background-color: #EB4D4D;
+  margin: auto;
+}
+
+.player-current-score {
+  font-size: 1.7rem;
+}
+
+#dice, path {
+  background-color: #f8f9fa;
+  border-radius: 25px;
+}
+
+
+        /* -- BUTTONS -- */
+#buttons-box {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}
+
+
+.btn {
+  font-size: 1.5rem;
+  text-transform: uppercase;
+}
+
+
+        /* -- MEDIA QUERIES -- */
+@media all and (max-width: 768px) {
+  #panel { height : auto; }
+  .player-0-panel, .player-1-panel { padding: 3rem; }
+  .player-name { font-size: 1.2rem; }
+  .player-current-label { font-size: 0.8rem; }
+  .player-score { font-size: 2rem; }
+  #canvas { min-height : 80vh; }
+  #buttons-box { flex-direction: row; justify-content: center;  }
+  .btn { font-size: 0.8rem; }
+  #button-new-game { position: absolute; top: 0%; }
+  .other-buttons { position: absolute; bottom: 0%; display: flex; }
+  #dice > svg { height: 3rem; width: 3rem; }
+}

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/style.css" />
+    <title>The Dice Game</title>
+</head>
+<body>
+    <!-- MAIN -->
+    <div class="container vh-100">
+        <div id="rules" class="my-3 bg-light shadow">
+                <div class="container p-3">
+                    <!-- BUTTON -->
+                    <button type="button"
+                    class="navbar-toggler text-danger"
+                    data-bs-toggle="collapse" 
+                    data-bs-target="#navbarText"
+                    aria-controls="navbarText"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">   
+                        <span class="text-uppercase fw-bold">Rules
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-info-circle ps-2" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                <path d="m8.93 6.588-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+                            </svg>
+                        </span>
+                    </button>
+                    <!-- END OF BUTTON -->
+                    <!-- RULES -->
+                    <div id="navbarText" class="collapse navbar-collapse justify-content-center">
+                        <h1 class="text-center p-3">The Dice Games</h1>
+                        <p> The dice game is played with <b>2 players</b>.</p>
+                        <p> Each player has a temporary score (CURRENT) and an overall score.</p>
+                        <p> On each turn, the player has his CURRENT <b>initialized to 0</b> and can roll a dice as many times as he wishes. The
+                            result of a throw is added to the CURRENT.</p>
+                        <p> During his turn, the player can decide at any time to:</p>
+                        <p> - Click on the "Hold" option, which sends the points of the CURRENT to the GLOBAL. It will then be the
+                            other player's turn.</p>
+                        <p> - Roll the dice. <b>If he rolls a 1, his CURRENT score is lost</b> and his turn is over.</p>
+                        <p class="text-center text-uppercase"><b>The first player to reach 100 points overall wins the game !</b></p>
+                    </div>
+                    <!-- END OF RULES -->
+                </div>
+        </div>
+
+        <!-- PLAYER ZONE -->
+        <div id="canvas" class="container bg-light shadow text-center position-relative">
+            <div class="row text-uppercase" id="panel">
+               <!-- Player 1 -->
+                <div class="col-md player-0-panel active">
+                    <div class="row h-50">
+                        <!-- PLAYER NAME --->
+                        <div class="player-name pt-3 align-self-end" id="name-0">Player 1</div>
+                        <!-- GLOBAL SCORE PLAYER --->
+                        <div class="player-score align-self-start" id="score-0">0</div>
+                    </div>
+                    <div class="row h-50">
+                        <div class="current-player w-50">
+                            <!-- ROUND SCORE PLAYER --->
+                            <div class="player-current-label text-align p-2">Current</div>
+                            <div class="player-current-score text-white pb-2" id="current-0">0</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of player 1 -->
+
+                <!-- Player 2 -->
+                <div class="col-md player-1-panel">
+                    <div class="row h-50">
+                        <!-- PLAYER NAME --->
+                        <div class="player-name pt-3 align-self-end" id="name-1">Player 2</div>
+                        <!-- GLOBAL SCORE PLAYER --->
+                        <div class="player-score align-self-start" id="score-1">0</div>
+                    </div>
+                    <div class="row h-50">
+                        <div class="current-player w-50">
+                             <!-- ROUND SCORE PLAYER --->
+                            <div class="player-current-label p-2">Current</div>
+                            <div class="player-current-score text-white pb-2" id="current-1">0</div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End of player 2 -->
+            </div>
+
+            <!--Buttons-->
+            <div class="" id="buttons-box">
+                  <!-- NEW GAME BUTTON ---> 
+                <div id="button-new-game">
+                    <button class="btn mt-3 p-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle text-danger me-2" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+                        </svg>
+                        New game
+                    </button>
+                </div>
+                <!-- END OF NEW GAME BUTTON ---> 
+
+                <!-- DICES ---> 
+                <div id="dice">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="currentColor" class="bi bi-dice-1 text-danger" viewBox="0 0 16 16">
+                        <circle cx="8" cy="8" r="1.5"/>
+                        <path d="M13 1a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h10zM3 0a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V3a3 3 0 0 0-3-3H3z"/>
+                    </svg>
+                </div>
+                <!-- END OF DICES ---> 
+
+                <!-- BUTTONS GROUP ROLL AND HOLD-->
+                <div class="other-buttons">
+                    <!-- BUTTON ROLL -->
+                    <div>
+                        <button class="btn p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-arrow-clockwise text-danger me-2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                                <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                            </svg>
+                            Roll dice
+                        </button>
+                    </div>
+                    <!-- END OF BUTTON ROLL -->
+                    <!-- BUTTON HOLD -->
+                    <div>
+                        <button class="btn p-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-box-arrow-in-down text-danger me-2" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M3.5 6a.5.5 0 0 0-.5.5v8a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5v-8a.5.5 0 0 0-.5-.5h-2a.5.5 0 0 1 0-1h2A1.5 1.5 0 0 1 14 6.5v8a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 14.5v-8A1.5 1.5 0 0 1 3.5 5h2a.5.5 0 0 1 0 1h-2z"/>
+                                <path fill-rule="evenodd" d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                            </svg>
+                            Hold
+                        </button>
+                    </div>
+                    <!-- END OF BUTTON HOLD -->
+                </div>
+                <!-- BUTTONS GROUP ROLL AND HOLD-->
+            </div>
+            <!--End of Buttons-->
+        </div>
+        <!-- END OF PLAYER ZONE-->
+    </div>
+<!-- END OF MAIN -->
+
+<!-- Script Bootstrap -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
