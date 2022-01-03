@@ -36,6 +36,13 @@ body {
   font-size: 2rem;
 }
 
+.active .player-name::after {
+  content: ".";
+  font-size: 5rem;
+  color: #EB4D4D;
+  padding: 10px;
+}
+
 .player-score {
   font-size: 5rem;
   color: #EB4D4D;
@@ -50,10 +57,13 @@ body {
   font-size: 1.7rem;
 }
 
-#dice, path {
+#dice > img {
   background-color: #f8f9fa;
-  border-radius: 25px;
-  box-shadow: 0px 0px 69px -8px rgba(0,0,0,0.30);
+  color: #EB4D4D;
+  border-radius: 20%;
+  height: 5rem;
+  width: 5rem;
+  box-shadow: 0px 0px 69px -8px rgba(0,0,0,0.35);
 }
 
 
