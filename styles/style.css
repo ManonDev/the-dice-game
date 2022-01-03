@@ -36,7 +36,7 @@ body {
   font-size: 2rem;
 }
 
-.active .player-name::after {
+.active > .player-name::after {
   content: ".";
   font-size: 5rem;
   color: #EB4D4D;
@@ -91,7 +91,7 @@ body {
         /* -- MEDIA QUERIES -- */
 @media all and (max-width: 768px) {
   #panel { height : auto; }
-  .player-0-panel, .player-1-panel { padding: 3rem; }
+  .player-1-panel, .player-2-panel { padding: 3rem; }
   .player-name { font-size: 1.2rem; }
   .player-current-label { font-size: 0.8rem; }
   .player-score { font-size: 2rem; }
