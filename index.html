@@ -59,7 +59,7 @@
                 <div class="col-md player-0-panel active">
                     <div class="row h-50">
                         <!-- PLAYER NAME --->
-                        <div class="player-name pt-3 align-self-end" id="name-0">Player 1</div>
+                        <div class="player-name pt-3 align-self-end" id="player-1">Player 1</div>
                         <!-- GLOBAL SCORE PLAYER --->
                         <div class="player-score align-self-start" id="score-0">0</div>
                     </div>
@@ -77,7 +77,7 @@
                 <div class="col-md player-1-panel">
                     <div class="row h-50">
                         <!-- PLAYER NAME --->
-                        <div class="player-name pt-3 align-self-end" id="name-1">Player 2</div>
+                        <div class="player-name pt-3 align-self-end" id="player-2">Player 2</div>
                         <!-- GLOBAL SCORE PLAYER --->
                         <div class="player-score align-self-start" id="score-1">0</div>
                     </div>
@@ -96,7 +96,7 @@
             <div class="" id="buttons-box">
                   <!-- NEW GAME BUTTON ---> 
                 <div id="button-new-game">
-                    <button class="btn  p-2">
+                    <button class="btn  p-2" data-bs-toggle="modal" data-bs-target="#modal-new-game">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-plus-circle text-danger me-2" viewBox="0 0 16 16">
                             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
                             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
@@ -143,12 +143,37 @@
                 <!-- BUTTONS GROUP ROLL AND HOLD-->
             </div>
             <!--End of Buttons-->
+            <!-- MODAL -->
+            <div class="modal fade was-validated" id="modal-new-game" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title">New Game</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <form action="" id="form">
+                        <div class="modal-body">
+                            <legend>Please enter the names of the players</legend>
+                            <label for="name-1" class="form-label">Player 1 : </label>
+                            <input type="text" class="form-control" placeholder="Enter your name" id="name-1" aria-label="name player 1" name="player1" required>
+                            <label for="name-2" class="form-label">Player 2 : </label>
+                            <input type="text" class="form-control" placeholder="Enter your name" id="name-2" aria-label="name player 2" name="player2" required>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" id="play">Play</button>
+                        </div>
+                    </form>
+                  </div>
+                </div>
+            </div>
         </div>
         <!-- END OF PLAYER ZONE-->
     </div>
 <!-- END OF MAIN -->
 
-<!-- Script Bootstrap -->
+<!-- SCRIPTS-->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+<script src="script.js"></script>
 </body>
 </html>
