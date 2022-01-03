@@ -88,6 +88,6 @@ body {
   #buttons-box { flex-direction: row; justify-content: center;  }
   .btn { font-size: 0.8rem; }
   #button-new-game { position: absolute; top: 0%; }
-  .other-buttons { position: absolute; bottom: 0%; display: flex; }
+  .buttons-game { position: absolute; bottom: 0%; display: flex; }
   #dice > svg { height: 3rem; width: 3rem; }
 }
