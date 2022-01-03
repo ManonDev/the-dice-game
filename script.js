@@ -18,7 +18,15 @@ form.addEventListener('submit', (e) => {
     if(player2.value != "" && player2.value != "") {
         $('#modal-new-game').modal('hide');
     }
- 
+    
+    //Reset all points
+    scoresGlobal = [0, 0];
+    roundScore = 0;
+
+    document.getElementById('scoreGlobal-1').textContent = '0';
+    document.getElementById('scoreGlobal-2').textContent = '0';
+    document.getElementById('current-1').textContent = '0';
+    document.getElementById('current-2').textContent = '0'
 
 });
 
