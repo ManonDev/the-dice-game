@@ -9,7 +9,7 @@ body {
         /* -- PLAYER ZONE -- */
 #canvas {
   margin-top: 2rem;
-  width: 90%;
+  width: 80%;
   min-height: 80vh;
 }
 
@@ -19,7 +19,7 @@ body {
 
 
         /* -- PLAYERS STYLES -- */
-.player-0-panel, .player-1-panel {
+.player-0-panel .player-1-panel {
   max-height: 100vh;
   padding: 2rem;
 }
@@ -36,11 +36,9 @@ body {
   font-size: 2rem;
 }
 
-.active > .player-name::after {
-  content: ".";
-  font-size: 5rem;
+.active  .player-name::after {
+  content: "\002022 ";
   color: #EB4D4D;
-  padding: 10px;
 }
 
 .player-score {
@@ -51,6 +49,7 @@ body {
 .current-player {
   background-color: #EB4D4D;
   margin: auto;
+  width : 30%;
 }
 
 .player-current-score {
@@ -83,10 +82,6 @@ body {
         /* -- BUTTONS -- */
 #buttons-box {
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
   width: 100%;
   height: 100%;
   top: 50%;
@@ -109,9 +104,7 @@ body {
   .player-current-label { font-size: 0.8rem; }
   .player-score { font-size: 2rem; }
   #canvas { min-height : 80vh; }
-  #buttons-box { flex-direction: row; justify-content: center;  }
-  .btn { font-size: 0.8rem; }
-  #button-new-game { position: absolute; top: 0%; }
-  .buttons-game { position: absolute; bottom: 0%; display: flex; }
+  .btn { font-size: 1rem; }
+  .buttons-game { display: flex; justify-content:center }
   #dice { height: 3rem; width: 3rem; }
 }
