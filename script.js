@@ -9,6 +9,15 @@ let gameStart;
 let panelActive = 1;
 
 
+function rotate () {
+    document.querySelector('#dice').className = "#dice";
+    window.requestAnimationFrame( (time) => {
+        window.requestAnimationFrame( (time) => {
+        document.querySelector("#dice").className = "rotate";
+        });
+      });
+};
+
 // Function NEW GAME
 form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -18,7 +27,7 @@ form.addEventListener('submit', (e) => {
     player2.textContent = document.querySelector('#name-2').value;
 
     // Close the modal if the names of the players are indicated
-    if(player2.value != "" && player2.value != "") {
+    if(player1.value != "" && player2.value != "") {
         $('#modal-new-game').modal('hide');
     }
     
@@ -30,23 +39,15 @@ form.addEventListener('submit', (e) => {
     document.getElementById('scoreGlobal-2').textContent = '0';
     document.getElementById('current-1').textContent = '0';
     document.getElementById('current-2').textContent = '0';
-    // Removing the 'active status' from the winning player 
-    document.querySelector('.player-1-panel').classList.remove('active');
-    document.querySelector('.player-2-panel').classList.remove('active');
 
-    // Make sure that the 'active status' from 'Player 2' is removed and given to 'Player 1'  
-    document.querySelector('.player-2-panel').classList.remove('active');
-    document.querySelector('.player-1-panel').classList.add('active');
-
-});
-
-
-btnRollTheDice.addEventListener('click', () => {
+    btnRollTheDice.addEventListener('click', () => {
+        // Calls the function rotate()
+        rotate();
         // Generate a random number between 1 and 6
         let numberDice = Math.floor(Math.random() * 6) + 1;
 
         // Modifies the face of the die according to the number generated
-        document.querySelector("#dice img").setAttribute("src",
+        document.querySelector("#dice").setAttribute("src",
                     "img/dices-faces/dice-" + numberDice + ".svg");
 
         // Adds the generated number to the active player's score
@@ -54,8 +55,12 @@ btnRollTheDice.addEventListener('click', () => {
             roundScore += numberDice;
             document.querySelector('#current-' + panelActive).textContent = roundScore;
         } else {
-        // if the player falls on 1, reinitializes the score and it is the second player's turn
+        // if the dice face == 1, reinitializes the score and it is the second player's turn
             roundScore = 0;
+            document.getElementById('current-' + panelActive).textContent = '0';
             nextPlayer();
         }  
+    });
 });
+
+
