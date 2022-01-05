@@ -49,7 +49,7 @@ body {
 .current-player {
   background-color: #EB4D4D;
   margin: auto;
-  width : 30%;
+  width : 40%;
 }
 
 .player-current-score {
@@ -64,6 +64,12 @@ body {
   width: 5rem;
   box-shadow: 0px 0px 69px -8px rgba(0,0,0,0.35);
 }
+
+.modal-win  {
+  background-image: url(../img/winner.png);
+  background-size: cover;
+}
+
 
 @keyframes rotate-scale {
   0% {
@@ -96,10 +102,11 @@ body {
 }
 
 
+
         /* -- MEDIA QUERIES -- */
 @media all and (max-width: 768px) {
   #panel { height : auto; }
-  .player-1-panel, .player-2-panel { padding: 3rem; }
+  .player-0-panel, .player-1-panel { padding: 3rem; }
   .player-name { font-size: 1.2rem; }
   .player-current-label { font-size: 0.8rem; }
   .player-score { font-size: 2rem; }
