@@ -1,7 +1,7 @@
 
 let player1 = document.querySelector('#player-0');
 let player2 = document.querySelector('#player-1');
-let form = document.querySelector('#form');
+let form    = document.querySelector('#form');
 let btnRollTheDice = document.querySelector('#rollTheDice');
 let btnHold = document.querySelector('#hold');
 
@@ -33,17 +33,22 @@ form.addEventListener('submit', (e) => {
         $('#modal-new-game').modal('hide');
     }
     
+    // Initialize the game
     gameStart = true;
+
     //Reset all points
     scoresGlobal = [0, 0];
     roundScore = 0;
-
     document.getElementById('scoreGlobal-0').textContent = '0';
     document.getElementById('scoreGlobal-1').textContent = '0';
     document.getElementById('current-0').textContent = '0';
     document.getElementById('current-1').textContent = '0';
+});
 
-    btnRollTheDice.addEventListener('click', () => {
+
+// Function Roll the Dice
+btnRollTheDice.addEventListener('click', () => {
+    if(gameStart) {
         // Calls the function rotate()
         rotate();
         // Generate a random number between 1 and 6
@@ -63,9 +68,13 @@ form.addEventListener('submit', (e) => {
             document.getElementById('current-' + panelActive).textContent = '0';
             nextPlayer();
         }  
-    });
+    } else {
+        $('#modal-new-game').modal('show');
+    }
 });
 
+
+// Function Hold the roundScore in scoreGlobal
 hold.addEventListener('click', () => {
     if(gameStart) {
         scoresGlobal[panelActive] += roundScore;
@@ -73,15 +82,15 @@ hold.addEventListener('click', () => {
         document.querySelector('#current-' + panelActive).textContent = 0;
         document.querySelector('#scoreGlobal-' + panelActive).textContent = scoresGlobal[panelActive];
 
+        // If the scoreGlobal's player = 100 >> WINNER
         if(scoresGlobal[panelActive] >= 100) {
             document.querySelector('#scoreGlobal-' + panelActive).textContent = 100;
             $('#winner').modal('show');
             gameStart = false;
         } else {
             nextPlayer();
-        }
+        };
     }
-    
 });
 
 
