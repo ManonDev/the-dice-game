@@ -10,7 +10,18 @@ let roundScore;
 let gameStart;
 let panelActive = 0;
 
+// Function player change
+function switchPlayer () {
+    if (panelActive === 0) {
+        panelActive = 1;
+      } else {
+        panelActive = 0;
+      }
+    document.querySelector('.player-0-panel').classList.toggle('active');
+    document.querySelector('.player-1-panel').classList.toggle('active');
+}
 
+// Function spinning the dice
 function rotate () {
     document.querySelector('#dice').className = "#dice";
     window.requestAnimationFrame( (time) => {
@@ -20,7 +31,7 @@ function rotate () {
       });
 };
 
-// Function NEW GAME
+// BUTTON NEW GAME
 form.addEventListener('submit', (e) => {
     e.preventDefault();
     e.stopPropagation();
@@ -46,7 +57,7 @@ form.addEventListener('submit', (e) => {
 });
 
 
-// Function Roll the Dice
+// BUTTON ROLL DICE
 btnRollTheDice.addEventListener('click', () => {
     if(gameStart) {
         // Calls the function rotate()
@@ -66,7 +77,7 @@ btnRollTheDice.addEventListener('click', () => {
         // if the dice face == 1, reinitializes the score and it is the second player's turn
             roundScore = 0;
             document.getElementById('current-' + panelActive).textContent = '0';
-            nextPlayer();
+            switchPlayer();
         }  
     } else {
         $('#modal-new-game').modal('show');
@@ -74,9 +85,11 @@ btnRollTheDice.addEventListener('click', () => {
 });
 
 
-// Function Hold the roundScore in scoreGlobal
-hold.addEventListener('click', () => {
+// BUTTON HOLD 
+btnHold.addEventListener('click', () => {
+    // if the game is initialised
     if(gameStart) {
+        // Hold the roundScore in scoreGlobal
         scoresGlobal[panelActive] += roundScore;
         roundScore = 0;
         document.querySelector('#current-' + panelActive).textContent = 0;
@@ -88,9 +101,11 @@ hold.addEventListener('click', () => {
             $('#winner').modal('show');
             gameStart = false;
         } else {
-            nextPlayer();
+            switchPlayer();
         };
     }
 });
+
+
 
 
