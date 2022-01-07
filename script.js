@@ -1,11 +1,11 @@
 
-let player1 = document.querySelector('#player-0');
-let player2 = document.querySelector('#player-1');
-let form    = document.querySelector('#form');
-let btnRollTheDice = document.querySelector('#rollTheDice');
-let btnHold = document.querySelector('#hold');
+let player1         = document.querySelector('#player-0');
+let player2         = document.querySelector('#player-1');
+let form            = document.querySelector('#form');
+let btnRollTheDice  = document.querySelector('#rollTheDice');
+let btnHold         = document.querySelector('#hold');
 
-let scoresGlobal;
+let globalScore;
 let roundScore;
 let gameStart;
 let panelActive = 0;
@@ -48,7 +48,7 @@ form.addEventListener('submit', (e) => {
     gameStart = true;
 
     //Reset all points
-    scoresGlobal = [0, 0];
+    globalScore = [0, 0];
     roundScore = 0;
     document.getElementById('scoreGlobal-0').textContent = '0';
     document.getElementById('scoreGlobal-1').textContent = '0';
@@ -90,14 +90,15 @@ btnHold.addEventListener('click', () => {
     // if the game is initialised
     if(gameStart) {
         // Hold the roundScore in scoreGlobal
-        scoresGlobal[panelActive] += roundScore;
+        globalScore[panelActive] += roundScore;
         roundScore = 0;
         document.querySelector('#current-' + panelActive).textContent = 0;
-        document.querySelector('#scoreGlobal-' + panelActive).textContent = scoresGlobal[panelActive];
+        document.querySelector('#scoreGlobal-' + panelActive).textContent = globalScore[panelActive];
 
         // If the scoreGlobal's player = 100 >> WINNER
-        if(scoresGlobal[panelActive] >= 100) {
+        if(globalScore[panelActive] >= 100) {
             document.querySelector('#scoreGlobal-' + panelActive).textContent = 100;
+            document.querySelector('.text-win').textContent = `The player has won the game with ${globalScore[panelActive]} points !`;
             $('#winner').modal('show');
             gameStart = false;
         } else {
