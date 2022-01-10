@@ -33,7 +33,7 @@ function switchPlayer () {
 }
 
 
-
+// CLASS
 class Player {
     constructor(roundScore, globalScore, panelActive ) {
         this.roundScore     = roundScore;
@@ -41,6 +41,7 @@ class Player {
         this.panelActive    = panelActive;
     }
 
+    // METHODE ROLL THE DICE
     rollTheDice() {
         if(gameStart) {
             // Calls the function rotate()
@@ -67,7 +68,7 @@ class Player {
         }
     }
 
-
+    // METHODE HOLD
     hold() {
         if(gameStart) {
             if(player1Play) {

@@ -1,14 +1,14 @@
-
+// VARIABLES
 let player1         = document.querySelector('#player-0');
 let player2         = document.querySelector('#player-1');
-let form            = document.querySelector('#form');
+let newGame         = document.querySelector('#form');
 let btnRollTheDice  = document.querySelector('#rollTheDice');
 let btnHold         = document.querySelector('#hold');
-
+let panelActive     = 0;
 let globalScore;
 let roundScore;
 let gameStart;
-let panelActive = 0;
+
 
 // Function player change
 function switchPlayer () {
@@ -32,7 +32,7 @@ function rotate () {
 };
 
 // BUTTON NEW GAME
-form.addEventListener('submit', (e) => {
+newGame.addEventListener('submit', (e) => {
     e.preventDefault();
     e.stopPropagation();
     // ask for the names of the players
