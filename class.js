@@ -1,6 +1,6 @@
 let namePlayer1     = document.querySelector('#player-0');
 let namePlayer2     = document.querySelector('#player-1');
-let form            = document.querySelector('#form');
+let newGame         = document.querySelector('#form');
 let btnRollTheDice  = document.querySelector('#rollTheDice');
 let btnHold         = document.querySelector('#hold');
 let gameStart;
@@ -11,8 +11,8 @@ let player2Play;
 // Function spinning the dice
 function rotate () {
     document.querySelector('#dice').className = "#dice";
-    window.requestAnimationFrame( (time) => {
-        window.requestAnimationFrame( (time) => {
+    window.requestAnimationFrame( () => {
+        window.requestAnimationFrame( () => {
         document.querySelector("#dice").className = "rotate";
         });
       });
@@ -96,7 +96,7 @@ class Player {
 
 
 // BUTTON NEW GAME
-form.addEventListener('submit', (e) => {
+newGame.addEventListener('submit', (e) => {
     e.preventDefault();
     e.stopPropagation();
     // ask for the names of the players
@@ -125,21 +125,13 @@ form.addEventListener('submit', (e) => {
 
 // BUTTON ROLL THE DICE
 btnRollTheDice.addEventListener('click', () => {
-    if(player1Play) {
-        player1.rollTheDice();
-    } else {
-        player2.rollTheDice();
-    }
+    player1Play ? player1.rollTheDice() : player2.rollTheDice();
 });
 
 
 // BUTTON HOLD
 btnHold.addEventListener('click', () => {
-    if(player1Play) {
-        player1.hold();
-    } else {
-        player2.hold();
-    }
+    player1Play ? player1.hold() : player2.hold();
 });
 
 

@@ -12,11 +12,7 @@ let gameStart;
 
 // Function player change
 function switchPlayer () {
-    if (panelActive === 0) {
-        panelActive = 1;
-      } else {
-        panelActive = 0;
-      }
+    panelActive === 0 ? panelActive = 1 : panelActive = 0;
     document.querySelector('.player-0-panel').classList.toggle('active');
     document.querySelector('.player-1-panel').classList.toggle('active');
 }
@@ -24,11 +20,11 @@ function switchPlayer () {
 // Function spinning the dice
 function rotate () {
     document.querySelector('#dice').className = "#dice";
-    window.requestAnimationFrame( (time) => {
-        window.requestAnimationFrame( (time) => {
-        document.querySelector("#dice").className = "rotate";
+    window.requestAnimationFrame( () => {
+            window.requestAnimationFrame(() => {
+                document.querySelector("#dice").className = "rotate";
+            });
         });
-      });
 };
 
 // BUTTON NEW GAME
